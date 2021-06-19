@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>不動産業者向け 無料ホームページテンプレート tp_fudosan12</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/openclose.js"></script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script>
+<!--
+function do_search(ord)
+{
+	document.form1.ord.value = ord;
+	document.form1.submit();
+}
+function do_reset()
+{
+	var tags = document.getElementsByTagName('input');
+	for (j = 0; j < tags.length; j++) {
+		if (tags[j].type == "checkbox") {
+			tags[j].checked = false;
+		} else if (tags[j].type == "text") {
+			tags[j].value = '';
+		}
+	}
+}
+function do_page(page)
+{
+	document.form1.page.value = page;
+	document.form1.submit();
+}
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="./"><img src="images/logo.png" alt="サンプル不動産"></a></h1>
+<div id="contact">
+<p class="tel">TEL:00-0000-0000<span>受付：00:00〜00:00　定休日：水曜日</span></p>
+</div>
+</header>
+
+<!--小さな端末用（800px以下端末）メニュー-->
+<nav id="menubar-s">
+<ul>
+<li><a href="./">ホーム<span>HOME</span></a></li>
+<li><a href="./?act=list&kind=1">売買物件<span>BAIBAI</span></a></li>
+<li><a href="./?act=list&kind=2">賃貸物件<span>CHINTAI</span></a></li>
+<li><a href="./?act=list&kind=3">テナント<span>TENANT</span></a></li>
+<li><a href="./?act=list&kind=4">駐車場<span>PARKING</span></a></li>
+<li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
+</ul>
+</nav>
+
+<div id="contents">
+
+<!--PC用（801px以上端末）メニュー-->
+<nav id="menubar">
+<ul>
+<li><a href="./">ホーム<span>HOME</span></a></li>
+<li><a href="./?act=list&kind=1">売買物件<span>BAIBAI</span></a></li>
+<li><a href="./?act=list&kind=2">賃貸物件<span>CHINTAI</span></a></li>
+<li><a href="./?act=list&kind=3">テナント<span>TENANT</span></a></li>
+<li><a href="./?act=list&kind=4">駐車場<span>PARKING</span></a></li>
+<li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
+</ul>
+</nav>
+
+<div id="main">
+
+<section>
+
+<h2>{val title}</h2>
+<p>以下の検索ブロックは編集可能です。詳しくは<a href="https://template-party.com/fudosan_program/manual.html" target="_blank">マニュアル</a>をご覧下さい。</p>
+
+<form name="form1" method="get">
+<input type="hidden" name="act" value="list">
+<input type="hidden" name="ord" value="{val form/ord}">
+<input type="hidden" name="kind" value="{val form/kind}">
+<input type="hidden" name="limit" value="{val limit}">
+<input type="hidden" name="html" value="{val html}">
+<input type="hidden" name="top" value="{val top}">
+<input type="hidden" name="page" value="">
+
+<table class="ta1">
+<tr>
+<th>所在地で検索</th>
+<td><input type="input" name="info1" value="{val form/info1}" class="ws"> (部分一致検索)</td>
+</tr>
+<!--{def form/special}-->
+<tr>
+<th>こだわりで検索</th>
+<td>
+<!--{each form/special}-->
+<div class="specialbox">
+<label for="special{val form/special/no}">
+<input type="checkbox" name="special{val form/special/no}" id="special{val form/special/no}" value="{val form/special/no}" <!--{def form/special/value}-->checked<!--{/def}-->>
+<!--{def form/special/icon}-->
+<img src="icon/{val form/special/icon}" alt="{val form/special/title}" title="{val form/special/title}">
+<!--{/def}-->
+<!--{ndef form/special/icon}-->
+{val form/special/title}&nbsp;
+<!--{/def}-->
+</label>
+</div>
+<!--input type="hidden" name="special{val form/special/value}" value="{val form/special/value}"-->
+<!--{/each}-->
+</td>
+</tr>
+<!--{/def}-->
+</table>
+
+<div class="c mb15"><input type="submit" value="この条件で検索する">&nbsp;<input type="button" value="リセット" onClick="do_reset()"></div>
+</form>
+
+<div class="c">
+<!--{def ord1}-->
+高い順にソート
+<!--{/def}-->
+<!--{ndef ord1}-->
+<a href="javascript:do_search(1)">高い順にソート</a>
+<!--{/ndef}-->
+｜
+<!--{def ord2}-->
+安い順にソート
+<!--{/def}-->
+<!--{ndef ord2}-->
+<a href="javascript:do_search(2)">安い順にソート</a>
+<!--{/ndef}-->
+｜
+<!--{def ord}-->
+新着順にソート
+<!--{/def}-->
+<!--{ndef ord}-->
+<a href="javascript:do_search('')">新着順にソート</a>
+<!--{/ndef}-->
+｜
+</div>
+
+<!--{each list}-->
+<div class="list<!--{def list/recommend2}--> option2<!--{/def}-->">
+<a href="?act=bukken&id={val list/info_id}">
+<h4>
+{val list/title}[No.{val list/info_id}]
+<!--{def list/new_flag}--><span class="newicon">NEW</span><!--{/def}-->
+<!--{def list/recommend3}--> キャンペーン物件 <!--{/def}-->
+<!--{def list/pdf}-->PDF資料あり<!--{/def}-->
+</h4>
+<figure>
+<!--{def list/image1_file}-->
+<img src="user_data/{val list/image1_file}" alt="{val list/title}">
+<!--{/def}-->
+<!--{ndef list/image1_file}-->
+<img src="images/noimg.png" alt="{val list/title}">
+<!--{/ndef}-->
+</figure>
+<table>
+<!--{each list/list_item}-->
+<tr>
+<!--{each list/list_item/row}-->
+<th>{val list/list_item/row/title}</th>
+<td>{val list/list_item/row/value}</td>
+<!--{/each}-->
+</tr>
+<!--{/each}-->
+</table>
+<!--{def list/recommend1}--><span class="option1">おすすめ</span><!--{/def}-->
+<!--{def list/recommend2}--><span class="option2">ご契約済</span><!--{/def}-->
+</a>
+</div>
+<!--{/each}-->
+
+<!--{def pager}-->
+<p class="c">
+<!--{def pager/prev}-->
+<a href="javascript:do_page({val pager/prev/no})">&lt;&lt; 前へ</a> |
+<!--{/def}-->
+<!--{ndef pager/prev}-->
+&lt;&lt; 前へ |
+<!--{/ndef}-->
+<!--{each pager/list}-->
+<!--{def pager/list/link}-->
+<a href="javascript:do_page({val pager/list/no})">{val pager/list/name}</a> |
+<!--{/def}-->
+<!--{ndef pager/list/link}-->
+{val pager/list/name} |
+<!--{/ndef}-->
+<!--{/each}-->
+<!--{def pager/next}-->
+<a href="javascript:do_page({val pager/next/no})">次へ &gt;&gt;</a>
+<!--{/def}-->
+<!--{ndef pager/next}-->
+次へ &gt;&gt;
+<!--{/ndef}-->
+</p>
+<!--{/def}-->
+
+</section>
+
+</div>
+<!--/main-->
+
+<div id="sub">
+
+<nav class="box1">
+<h2>Menu</h2>
+<ul class="submenu">
+<li><a href="./">ホーム</a></li>
+<li><a href="company.html">会社概要</a></li>
+<li><a href="link.html">リンク</a></li>
+<li><a href="#">メニュー</a></li>
+<li><a href="#">メニュー</a></li>
+<li><a href="#">メニュー</a></li>
+</ul>
+</nav>
+
+<section>
+
+<h2>おすすめ物件情報</h2>
+
+<!--{each osusume}-->
+<div class="list">
+<a href="?act=bukken&id={val osusume/info_id}">
+<figure>
+<!--{def osusume/image1_file}-->
+<img src="user_data/{val osusume/image1_file}" alt="{val osusume/title}">
+<!--{/def}-->
+<!--{ndef osusume/image1_file}-->
+<img src="images/noimg.png" alt="{val osusume/title}">
+<!--{/ndef}-->
+</figure>
+<h4>{val osusume/title}</h4>
+<p>■{val osusume/info1/title}…{val osusume/info1/value}
+■{val osusume/info2/title}…{val osusume/info2/value}
+■{val osusume/info3/title}…{val osusume/info3/value}
+</p>
+</a>
+</div>
+<!--{/each}-->
+
+</section>
+
+<div class="box1">
+<h2>この見出しはh2タグです</h2>
+<p>このボックスは、class="box1"と指定すれば出ます。</p>
+</div>
+
+<h2>Access</h2>
+<div class="box1">
+<strong>TEL:00-0000-0000</strong><br>
+<span class="mini1">受付：00:00〜00:00<br>
+定休日：水曜日</span>
+</div>
+
+</div>
+<!--/sub-->
+
+<p id="pagetop"><a href="#">↑</a></p>
+
+<footer>
+
+<div id="footermenu">
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+</div>
+<!--/footermenu-->
+
+<div id="copyright">
+<small>Copyright&copy; <a href="./">サンプル不動産</a> All Rights Reserved.</small>
+<span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</div>
+
+</footer>
+
+</div>
+<!--/contents-->
+
+</div>
+<!--/container-->
+
+<!--スマホ用更新情報　800px以下-->
+<script>
+if (OCwindowWidth() <= 800) {
+	open_close("newinfo_hdr", "newinfo");
+}
+</script>
+
+<!--メニューの３本バー-->
+<div id="menubar_hdr" class="close"><span></span><span></span><span></span></div>
+<!--メニューの開閉処理条件設定　800px以下-->
+<script>
+if (OCwindowWidth() <= 800) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+</body>
+</html>

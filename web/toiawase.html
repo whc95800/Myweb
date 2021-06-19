@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>不動産業者向け 無料ホームページテンプレート tp_fudosan12</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ここにサイト説明を入れます">
+<meta name="keywords" content="キーワード１,キーワード２,キーワード３,キーワード４,キーワード５">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/openclose.js"></script>
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="s-n">
+
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="./"><img src="images/logo.png" alt="サンプル不動産"></a></h1>
+<div id="contact">
+<p class="tel">TEL:00-0000-0000<span>受付：00:00〜00:00　定休日：水曜日</span></p>
+</div>
+</header>
+
+<!--小さな端末用（800px以下端末）メニュー-->
+<nav id="menubar-s">
+<ul>
+<li><a href="./">ホーム<span>HOME</span></a></li>
+<li><a href="./?act=list&kind=1">売買物件<span>BAIBAI</span></a></li>
+<li><a href="./?act=list&kind=2">賃貸物件<span>CHINTAI</span></a></li>
+<li><a href="./?act=list&kind=3">テナント<span>TENANT</span></a></li>
+<li><a href="./?act=list&kind=4">駐車場<span>PARKING</span></a></li>
+<li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
+</ul>
+</nav>
+
+<div id="contents">
+
+<!--PC用（801px以上端末）メニュー-->
+<nav id="menubar">
+<ul>
+<li><a href="./">ホーム<span>HOME</span></a></li>
+<li><a href="./?act=list&kind=1">売買物件<span>BAIBAI</span></a></li>
+<li><a href="./?act=list&kind=2">賃貸物件<span>CHINTAI</span></a></li>
+<li><a href="./?act=list&kind=3">テナント<span>TENANT</span></a></li>
+<li><a href="./?act=list&kind=4">駐車場<span>PARKING</span></a></li>
+<li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
+</ul>
+</nav>
+
+<div id="main">
+
+<section>
+
+<h2>物件お問い合わせフォーム</h2>
+<p>タブレットとスマホ環境(幅800px以下端末)では、sub,footermenuブロックが非表示になります。その他のページでも非表示にしたい場合、html側の&lt;body&gt;タグを&lt;body class=&quot;s-n&quot;&gt;として下さい。もしclass指定が２つ以上ある場合は半角スペースで区切って入力すればOKです。例：&lt;body class=&quot;s-n sample&quot;&gt;</p>
+
+<!--{ndef mode}-->
+<p class="color1">お問い合わせ内容を送信しました。</p>
+<!--{/ndef}-->
+
+<!--{def mode}-->
+
+<!--{ndef confirm}-->
+<p class="color1">全項目入力必須です。</p>
+<!--{/ndef}-->
+
+<!--{def message}-->
+<p class="color1">{val message}</p>
+<!--{/def}-->
+
+<form name="form1" method="post" action="?act=toiawase">
+<input type="hidden" name="mode" value="{val mode}">
+<input type="hidden" name="id" value="{val item/info_id}">
+<table class="ta1 mb1em">
+<!--{def item/info_id}-->
+<tr>
+<th>物件ID</th>
+<td>{val item/info_id}</td>
+</tr>
+<tr>
+<th>物件名称</th>
+<td>{val item/title}</td>
+</tr>
+<!--{/def}-->
+<tr>
+<th>お名前</th>
+<td>
+<!--{def confirm}-->
+{val form/name}
+<!--{/def}-->
+<!--{ndef confirm}-->
+<input type="text" name="name" size="30" class="ws" value="{val form/name}">
+<!--{/ndef}-->
+</td>
+</tr>
+<tr>
+<th>メールアドレス</th>
+<td>
+<!--{def confirm}-->
+{val form/email}
+<!--{/def}-->
+<!--{ndef confirm}-->
+<input type="text" name="email" size="50" class="ws" value="{val form/email}">
+<!--{/ndef}-->
+</td>
+</tr>
+<tr>
+<th>お問い合わせ詳細 </th>
+<td>
+<!--{def confirm}-->
+{val form/comment}
+<!--{/def}-->
+<!--{ndef confirm}-->
+<textarea name="comment" cols="60" rows="8" class="wl">{rval form/comment}</textarea>
+<!--{/ndef}-->
+</td>
+</tr>
+</table>
+
+<div class="c">
+<!--{def confirm}-->
+<input type="submit" value="この内容で送信する">
+<!--{/def}-->
+<!--{ndef confirm}-->
+<input type="submit" value="確認する">
+<!--{/ndef}-->
+</div>
+</form>
+<!--{/def}-->
+
+<p><a href="?act=bukken&id={val item/info_id}">&lt;&lt; 前のページに戻る</a></p>
+
+</section>
+
+</div>
+<!--/main-->
+
+<div id="sub">
+
+<nav class="box1">
+<h2>Menu</h2>
+<ul class="submenu">
+<li><a href="./">ホーム</a></li>
+<li><a href="company.html">会社概要</a></li>
+<li><a href="link.html">リンク</a></li>
+<li><a href="#">メニュー</a></li>
+<li><a href="#">メニュー</a></li>
+<li><a href="#">メニュー</a></li>
+</ul>
+</nav>
+
+<div class="box1">
+<h2>この見出しはh2タグです</h2>
+<p>このボックスは、class="box1"と指定すれば出ます。</p>
+</div>
+
+<h2>Access</h2>
+<div class="box1">
+<strong>TEL:00-0000-0000</strong><br>
+<span class="mini1">受付：00:00〜00:00<br>
+定休日：水曜日</span>
+</div>
+
+</div>
+<!--/sub-->
+
+<p id="pagetop"><a href="#">↑</a></p>
+
+<footer>
+
+<div id="footermenu">
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+<ul>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+<li><a href="#">メニューサンプル</a></li>
+</ul>
+</div>
+<!--/footermenu-->
+
+<div id="copyright">
+<small>Copyright&copy; <a href="./">サンプル不動産</a> All Rights Reserved.</small>
+<span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
+</div>
+
+</footer>
+
+</div>
+<!--/contents-->
+
+</div>
+<!--/container-->
+
+<!--スマホ用更新情報　800px以下-->
+<script>
+if (OCwindowWidth() <= 800) {
+	open_close("newinfo_hdr", "newinfo");
+}
+</script>
+
+<!--メニューの３本バー-->
+<div id="menubar_hdr" class="close"><span></span><span></span><span></span></div>
+<!--メニューの開閉処理条件設定　800px以下-->
+<script>
+if (OCwindowWidth() <= 800) {
+	open_close("menubar_hdr", "menubar-s");
+}
+</script>
+</body>
+</html>
