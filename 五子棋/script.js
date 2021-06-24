@@ -1,6 +1,6 @@
 const ROWS_COUNT = 15;
 const COLUMNS_COUNT = 15;
-const WIN_SEQUENCE_LENGTH = 4;
+const WIN_SEQUENCE_LENGTH = 5;
 let gameIsOver = false;
 let currentTurn = "black";
 
@@ -15,7 +15,7 @@ class Chip {
         targetChip.setColor(currentTurn);
         const winChips = getWinChips(targetChip);
         if (winChips.length !== 0) {
-          winChips.forEach(chip => chip.setColor("red"));
+          winChips.forEach((chip) => chip.setColor("red"));
           gameIsOver = true;
           document
             .getElementById("win-result")
@@ -66,7 +66,7 @@ class ChipsCollection {
 
 const chips = new ChipsCollection({
   rows: ROWS_COUNT + 1,
-  columns: COLUMNS_COUNT + 1
+  columns: COLUMNS_COUNT + 1,
 });
 const table = document.getElementById("field-table");
 let chipCounter = 0;
@@ -98,7 +98,7 @@ function createChipInCell(cellNode, ...additionalChipClasses) {
   const chipNode = document.createElement("div");
   chips.push(chipNode);
   chipNode.setAttribute("class", "chip");
-  additionalChipClasses.forEach(additionalClass => {
+  additionalChipClasses.forEach((additionalClass) => {
     chipNode.setAttribute(
       "class",
       chipNode.getAttribute("class") + " " + additionalClass
@@ -142,7 +142,7 @@ function getWinChips(targetChip) {
     ...horisontalWinSequence,
     ...verticalWinSequence,
     ...slashWinSequence,
-    ...backSlashWinSequence
+    ...backSlashWinSequence,
   ];
 }
 
@@ -161,7 +161,7 @@ function getHorisontalWinSequence(targetChip) {
     }
   }
   const winSequence =
-    chipSequences.find(sequence => sequence.length >= WIN_SEQUENCE_LENGTH) ||
+    chipSequences.find((sequence) => sequence.length >= WIN_SEQUENCE_LENGTH) ||
     [];
   return winSequence;
 }
@@ -181,7 +181,7 @@ function getVerticalWinSequence(targetChip) {
     }
   }
   const winSequence =
-    chipSequences.find(sequence => sequence.length >= WIN_SEQUENCE_LENGTH) ||
+    chipSequences.find((sequence) => sequence.length >= WIN_SEQUENCE_LENGTH) ||
     [];
   return winSequence;
 }
@@ -208,7 +208,7 @@ function getSlashWinSequence(targetChip) {
     }
   }
   const winSequence =
-    chipSequences.find(sequence => sequence.length >= WIN_SEQUENCE_LENGTH) ||
+    chipSequences.find((sequence) => sequence.length >= WIN_SEQUENCE_LENGTH) ||
     [];
   return winSequence;
 }
@@ -237,7 +237,7 @@ function getBackSlashWinSequence(targetChip) {
     }
   }
   const winSequence =
-    chipSequences.find(sequence => sequence.length >= WIN_SEQUENCE_LENGTH) ||
+    chipSequences.find((sequence) => sequence.length >= WIN_SEQUENCE_LENGTH) ||
     [];
   return winSequence;
 }
