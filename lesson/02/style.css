@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#outer{
+    width: 500px;
+    margin: 50px auto;
+    padding: 10px;
+    background-color: #1ee2e7;
+    text-align: center;
+}

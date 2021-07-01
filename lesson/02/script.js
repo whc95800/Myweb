@@ -1,56 +1,24 @@
-var checkedAllBtn = document.getElementById("checkedAllBtn");
-var items = document.getElementsByName("items");
-checkedAllBtn.onclick = function () {
-    for (var i=0;i<items.length;i++){
-        items[i].checked=true;
-    }
-    checkedAllBox.checked = true;
-};
 
-var checkedNoBtn = document.getElementById("checkedNoBtn");
-checkedNoBtn.onclick = function () {
-    for (var i=0;i<items.length;i++){
-        items[i].checked=false;
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+var img = document.getElementsByTagName("img")[0];
+var imgs = ["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+var index=0;
+var info = document.getElementById("info");
+info.innerHTML="合計"+imgs.length+"ページ、現在"+(index+1)+"ページ。"
+prev.onclick=function (){
+    index--;
+    if (index<0){
+        index=4;
     }
-    checkedAllBox.checked = false;
-};
-
-var checkedRevBtn = document.getElementById("checkedRevBtn");
-checkedRevBtn.onclick = function () {
-    checkedAllBox.checked = true;
-    for (var i=0;i<items.length;i++){
-        items[i].checked=!items[i].checked;
-        if(!items[i].checked){
-            checkedAllBox.checked = false;
-        }
+    img.src=imgs[index];
+    info.innerHTML="合計"+imgs.length+"ページ、現在"+(index+1)+"ページ。"
+}
+next.onclick=function (){
+    index++;
+    if (index>4){
+        index=0;
     }
-};
-
-var sendBtn = document.getElementById("sendBtn");
-sendBtn.onclick = function(){
-    for(var i=0 ; i<items.length ; i++){
-        if(items[i].checked){
-            alert(items[i].value);
-        }
-    }
-};
-
-
-var checkedAllBox= document.getElementById("checkedAllBox");
-checkedAllBox.onclick = function(){
-    for(var i=0; i <items.length ; i++){
-        items[i].checked = this.checked;
-    }
-};
-
-for(var i=0 ; i<items.length ; i++){
-    items[i].onclick = function(){
-        checkedAllBox.checked = true;
-        for(var j=0 ; j<items.length ; j++){
-            if(!items[j].checked){
-                checkedAllBox.checked = false;
-                break;
-            }
-        }
-    }
+    img.src=imgs[index];
+    info.innerHTML="合計"+imgs.length+"ページ、現在"+(index+1)+"ページ。"
 }
