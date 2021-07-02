@@ -1,5 +1,5 @@
 function myClick(idStr,fun) {
-    var btn = document.getElementById("idStr");
+    var btn = document.getElementById(idStr);
     btn.onclick=fun;
 }
 
@@ -48,9 +48,16 @@ btn06.onclick=function () {
     alert(p1.innerHTML);
 };
 
-
-myClick("btn07",function (){
+var btn07 =document.getElementById("btn06");
+btn07.onclick=function () {
     var bj = document.getElementById("bj");
     var pn =bj.parentNode;
     alert(pn.innerText);
+};
+
+
+myClick("btn07",function (){
+        var bj = document.getElementById("bj");
+        var pn =bj.parentNode;
+        alert(pn.innerText);
 });

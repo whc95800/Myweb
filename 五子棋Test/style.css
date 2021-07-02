@@ -12,7 +12,7 @@ h1 {
     text-align: center;
 }
 
-.game-information {
+.info {
     height: 150px;
 }
 
@@ -40,7 +40,7 @@ h1 {
     font-size: 26px;
 }
 
-.field {
+#field {
     width: 640px;
     height: 640px;
     background-color: #966f54;
@@ -62,53 +62,8 @@ h1 {
     position: relative;
 }
 
-.chip {
-    border-radius: 17px;
-    height: 34px;
-    width: 34px;
+.chess{
+    width: 35px;
+    height: 35px;
     position: absolute;
-    left: -18px;
-    top: -18px;
-    transition: background-color 0.2s ease;
-}
-
-.chip:hover {
-    background-color: rgb(255, 255, 255, 0.5);
-}
-
-.chip.last-in-row {
-    right: -18px;
-    left: inherit;
-}
-
-.chip.last-in-column {
-    bottom: -18px;
-    top: inherit;
-}
-
-.chip.black {
-    background: radial-gradient(
-            farthest-side at 34px 34px,
-            #ffffff 0%,
-            #000000 70%
-    );
-    box-shadow: -3px -3px 10px black;
-}
-
-.chip.white {
-    background: radial-gradient(
-            farthest-side at 34px 34px,
-            #ffffff 0%,
-            #d0cfcd 70%
-    );
-    box-shadow: -3px -3px 10px black;
-}
-
-.chip.red {
-    background: radial-gradient(
-            farthest-side at 34px 34px,
-            #ffffff 0%,
-            #961006 70%
-    );
-    box-shadow: -3px -3px 10px black;
 }
