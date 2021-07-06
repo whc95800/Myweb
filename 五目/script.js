@@ -28,3 +28,12 @@ for (let y = 0; y < ROWS; y++) {
     }
     table.appendChild(row);
 }
+
+function drawChip () {
+    alert("我点div了");
+}
+
+const drawChips = document.getElementsByClassName("chip");
+for(var i in drawChips){
+    drawChips[i].onclick = drawChip;
+}

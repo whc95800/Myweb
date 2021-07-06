@@ -86,3 +86,30 @@ h1 {
     bottom: -18px;
     top: inherit;
 }
+
+.chip.black {
+    background: radial-gradient(
+            farthest-side at 34px 34px,
+            #ffffff 0%,
+            #000000 70%
+    );
+    box-shadow: -3px -3px 10px black;
+}
+
+.chip.white {
+    background: radial-gradient(
+            farthest-side at 34px 34px,
+            #ffffff 0%,
+            #d0cfcd 70%
+    );
+    box-shadow: -3px -3px 10px black;
+}
+
+.chip.red {
+    background: radial-gradient(
+            farthest-side at 34px 34px,
+            #ffffff 0%,
+            #961006 70%
+    );
+    box-shadow: -3px -3px 10px black;
+}
