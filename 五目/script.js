@@ -31,11 +31,17 @@ for (let y = 0; y < ROWS; y++) {
 }
 
 function drawChip () {
+    let currentBlack=document.getElementById("turn-black");
+    let currentWhite=document.getElementById("turn-white");
         if (TURN%2===0&&!hasClass(this,"white")&&!hasClass(this,"black")){
             this.className += " black";
+            currentBlack.className ="turn turn-current";
+            currentWhite.className = "turn"
             TURN++;
         }else if(TURN%2===1&&!hasClass(this,"black")&&!hasClass(this,"white")){
             this.className +=" white";
+            currentWhite.className = "turn turn-current";
+            currentBlack.className = "turn"
             TURN++;
         }
 }
