@@ -1,5 +1,6 @@
 const ROWS=15;
 const COLUMNS=15;
+let TURN=0;
 
 const table = document.getElementById("field-table");
 for (let y = 0; y < ROWS; y++) {
@@ -30,10 +31,21 @@ for (let y = 0; y < ROWS; y++) {
 }
 
 function drawChip () {
-    alert("我点div了");
+        if (TURN%2===0&&!hasClass(this,"white")&&!hasClass(this,"black")){
+            this.className += " black";
+            TURN++;
+        }else if(TURN%2===1&&!hasClass(this,"black")&&!hasClass(this,"white")){
+            this.className +=" white";
+            TURN++;
+        }
+}
+
+function hasClass (obj,cn){
+    let reg = new RegExp("\\b"+cn+"\\b");
+    return reg.test(obj.className);
 }
 
 const drawChips = document.getElementsByClassName("chip");
-for(var i in drawChips){
+for(let i in drawChips){
     drawChips[i].onclick = drawChip;
 }
