@@ -72,11 +72,11 @@ for(let i in drawChips){
 
 
 
-function arrTrans(array, subGroupLength) {
+function arrTrans(array, arrLength) {
     let index = 0;
     let newArray = [];
     while(index < array.length) {
-        newArray.push(array.slice(index, index += subGroupLength));
+        newArray.push(array.slice(index, index += arrLength));
     }
     return newArray;
 }
