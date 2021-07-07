@@ -70,8 +70,6 @@ for(let i in drawChips){
     drawChips[i].onclick = drawChip;
 }
 
-
-
 function arrTrans(array, arrLength) {
     let index = 0;
     let newArray = [];
