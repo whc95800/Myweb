@@ -70,6 +70,7 @@ h1 {
     left: -18px;
     top: -18px;
     transition: background-color 0.2s ease;
+    font-size: 0;
 }
 
 .chip:hover {

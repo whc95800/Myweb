@@ -26,25 +26,38 @@ for (let y = 0; y < ROWS; y++) {
         chips.className = "chip";
         box.appendChild(chips);
         row.appendChild(box);
+        chips.innerHTML="0";
     }
     table.appendChild(row);
 }
 
+
+
 function drawChip () {
-    let currentBlack=document.getElementById("turn-black");
-    let currentWhite=document.getElementById("turn-white");
+        let currentBlack=document.getElementById("turn-black");
+        let currentWhite=document.getElementById("turn-white");
+        let arr = [];
         if (TURN%2===0&&!hasClass(this,"white")&&!hasClass(this,"black")){
             this.className += " black";
-            currentBlack.className ="turn turn-current";
-            currentWhite.className = "turn"
+            this.innerHTML="1";
+            currentBlack.className ="turn";
+            currentWhite.className = "turn turn-current"
             TURN++;
         }else if(TURN%2===1&&!hasClass(this,"black")&&!hasClass(this,"white")){
             this.className +=" white";
-            currentWhite.className = "turn turn-current";
-            currentBlack.className = "turn"
+            this.innerHTML="10";
+            currentWhite.className = "turn";
+            currentBlack.className = "turn turn-current"
             TURN++;
         }
+        for (let i=0;i<drawChips.length;i++){
+            arr[i]=drawChips[i].innerHTML;
+        }
+        let chipsArr = arrTrans(arr,16);
+        console.log(chipsArr);
+
 }
+
 
 function hasClass (obj,cn){
     let reg = new RegExp("\\b"+cn+"\\b");
@@ -52,6 +65,19 @@ function hasClass (obj,cn){
 }
 
 const drawChips = document.getElementsByClassName("chip");
+
 for(let i in drawChips){
     drawChips[i].onclick = drawChip;
 }
+
+
+
+function arrTrans(array, subGroupLength) {
+    let index = 0;
+    let newArray = [];
+    while(index < array.length) {
+        newArray.push(array.slice(index, index += subGroupLength));
+    }
+    return newArray;
+}
+
