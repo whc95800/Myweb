@@ -105,12 +105,3 @@ h1 {
     );
     box-shadow: -3px -3px 10px black;
 }
-
-.chip.red {
-    background: radial-gradient(
-            farthest-side at 34px 34px,
-            #ffffff 0%,
-            #961006 70%
-    );
-    box-shadow: -3px -3px 10px black;
-}
